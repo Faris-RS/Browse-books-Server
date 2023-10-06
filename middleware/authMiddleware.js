@@ -10,6 +10,7 @@ const authMiddleware = async (req, res, next) => {
         if (!token) {
             return res.status(401).json({ message: 'No token Unauthorized' });
         }
+        console.log('no token');
         const decoded = jwt.verify(token, secret);
         req.userId = decoded?.id;
         next();
